@@ -36,8 +36,8 @@ namespace Vehicles.API.Data.Entities
 
         [Display(Name = "Foto")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://localhost:44345/images/no-image.png"
-            : $"https://vehicleszulu.blob.core.windows.net/users/{ImageId}";
+            ? $"https://localhost:44335/images/no-image.png"
+            : $"https://vehicleseddy.blob.core.windows.net/users/{ImageId}";
         [Display(Name = "Tipo de usuario")]
         public UserType UserType { get; set; }
 
@@ -45,6 +45,7 @@ namespace Vehicles.API.Data.Entities
         public string FullName => $"{FirstName} {LastName}";
         public ICollection<Vehicle> Vehicles { get; set; }
 
-
+        [Display(Name = "# Vehículos")]
+        public int VehiclesCount => Vehicles == null ? 0 : Vehicles.Count;
     }
 }
